@@ -1,0 +1,27 @@
+  # -*- mode: ruby -*-
+# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "bento/centos-7.3"
+  
+  ## Forwarded port
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  ## For masterless, mount your salt file root
+  config.vm.synced_folder "salt/roots/", "/srv/salt/"
+  config.vm.synced_folder "salt/minion.d/", "/etc/salt/minion.d/"
+ 
+  ## Use all the defaults:
+  config.vm.provision :salt do |salt|
+    salt.minion_config = "salt/minion"
+    salt.run_highstate = true
+    salt.grains_config = "salt/minion.d/vagrant.conf"
+  end
+  
+  ## 
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 1024
+  end
+
+end
