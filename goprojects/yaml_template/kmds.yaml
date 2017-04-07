@@ -1,0 +1,27 @@
+index: tnlookup
+numShard: 8
+xmx: 8192
+shard1:
+  - "kmdsidc01-test:8081"
+  - "kmdsidc02-test:8081"
+#  shard2:
+#    - "kmdsidc01-test:8082"
+#    - "kmdsidc02-test:8082"
+#  shard3:
+#    - "kmdsidc01-test:8083"
+#    - "kmdsidc02-test:8083"
+#  shard4:
+#    - "kmdsidc01-test:8084"
+#    - "kmdsidc02-test:8084"
+#  shard5:
+#    - "kmdsidc01-test:8094"
+#    - "kmdsidc02-test:8094"
+#  shard6:
+#    - "kmdsidc01-test:8095"
+#    - "kmdsidc02-test:8095"
+#  shard7:
+#    - "kmdsidc02-test:8093"
+#    - "kmdsidc03-test:8093"
+#  shard8:
+#   - "kmdsidc02-test:8097"
+#    - "kmdsidc03-test:8094"
