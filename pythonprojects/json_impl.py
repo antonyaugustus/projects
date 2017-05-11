@@ -1,7 +1,5 @@
 import json
 
-#json_string = '{"first_name": "Guido", "last_name":"Rossum"}'
-
 json_string = '{"domain_name": "mmae", "dc": "idc", "node_count": 2, "env": "env1"}'
 parsed_json = json.loads(json_string)
 
