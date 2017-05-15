@@ -10,4 +10,4 @@ def get_patchgroup(url='url', searchfor='hostname'):
         return result['patchgroup']
 
 if __name__ == '__main__':
-    print(get_patchgroup("http://iapsolr.l3.com/solr/minion/", "wladmin01.env1.idc1*"))
+    print(get_patchgroup("http://solr/index", "search_term*"))
