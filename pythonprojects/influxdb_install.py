@@ -1,4 +1,4 @@
-#!/usr/local/bin/env python
+#!/usr/bin/env python
 
 import yum
 import os
@@ -30,11 +30,11 @@ def influx_start():
 
     while True:
         out = p.stderr.read(1)
-    if out == '' and p.poll() != None:
-        break
-    if out != '':
-        sys.stdout.write(out)
-        sys.stdout.flush()
+        if out == '' and p.poll() != None:
+           break
+        if out != '':
+            sys.stdout.write(out)
+            sys.stdout.flush()
 
 def influx_variable():
     INFLUXDB_CONFIG_PATH="/etc/influxdb/influxdb.conf"
