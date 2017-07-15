@@ -1,0 +1,4 @@
+export GOPATH=~/apps/projects/goprojects
+export GOROOT=~/apps/projects/goprojects/go
+
+export PATH=$PATH:$GOROOT/bin
