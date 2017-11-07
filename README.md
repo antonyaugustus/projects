@@ -12,16 +12,22 @@ Consul is the configured storage backend. It proviced auto health check.
 ```
 
 unzip vault
+
 create configuration
   HCL file - vault-server.hcl
+
 init vault
   Store the generated keys and master vault token
+
 vault unseal
   Use the generated keys
 
 write to secret (CLI/API)
+
 create policy (CLI)
+
 create client_token bound to the policy (CLI/API)
+
 read secret using generated client_token (CLI/API)
 
 ```
