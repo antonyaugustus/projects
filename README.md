@@ -1,21 +1,23 @@
 # Vault Deployment
 
-### Purpose/Description
+## Purpose/Description
 
-The vault install script will drop the configuration file for dev, test and prod environments but will be overwritten by this script.
+The vault install walks through the steps require to install, configure, initialize a vault server. 
+After the initial steps, it covers how to write, create policy and read from secret backend.
 
-systemd unit files that the vault install script will put in place will be overwritten with a new one from this deployment script
+Consul is the configured storage backend. It proviced auto health check.
 
-### Install Steps
 ```
+## Install Steps
+```
+
 unzip vault
 create configuration
-  HCL file
+  HCL file - vault-server.hcl
 init vault
-unseal vault
-auth vault
-
-consul storage backend with secret kv
+  Store the generated keys and master vault token
+vault unseal
+  Use the generated keys
 
 write to secret (CLI/API)
 create policy (CLI)
@@ -23,7 +25,7 @@ create client_token bound to the policy (CLI/API)
 read secret using generated client_token (CLI/API)
 
 ```
-### Provisioning
+## Provisioning
 ```
 
 ```
@@ -31,6 +33,13 @@ read secret using generated client_token (CLI/API)
 ```
 
 ## How-Tos:
+vault unseal
+vault policy-write <name_of_policy> policy.hcl
+vault token-create -policy=<name_of_policy> -format=json |jq -r .auth.client_token
+vault write secret/path-to-key value=password
+vault read secret/path-to-key
+vault token-revoke <client_token>
+
 
 _**Bootstrapping a cluster**_
 
