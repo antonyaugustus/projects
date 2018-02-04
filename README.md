@@ -51,9 +51,17 @@ vault read secret/path-to-key
 
 vault token-revoke <client_token>
 
-``Username/Password authentication``
+``Username/Password authentication: ``
 vault auth-enable userpass
 
+``Set authentication for "user": ``
+vault auth -method=userpass username=user password=pass
+
+``Read secret path with new "user": ``
+vault read secret/user/object
+
+``Read failure for secret path with different "invalid_user": ``
+vault read secret/invalid_user/object
 
 _**Bootstrapping a cluster**_
 
