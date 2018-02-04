@@ -41,7 +41,7 @@ read secret using generated client_token (CLI/API)
 ## How-Tos:
 vault unseal
 
-vault policy-write <name_of_policy> policy.hcl
+vault policy write <name_of_policy> <path/to/policy.hcl>
 
 vault token-create -policy=<name_of_policy> -format=json |jq -r .auth.client_token
 
@@ -50,6 +50,9 @@ vault write secret/path-to-key value=password
 vault read secret/path-to-key
 
 vault token-revoke <client_token>
+
+``Username/Password authentication``
+vault auth-enable userpass
 
 
 _**Bootstrapping a cluster**_
